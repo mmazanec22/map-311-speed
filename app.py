@@ -13,7 +13,7 @@ from flask import Flask, render_template, url_for
 # https://dev.socrata.com/foundry/data.cityofchicago.org/dvua-vftq
 # potholes
 # https://dev.socrata.com/foundry/data.cityofchicago.org/787j-mys9
-potholes = 'https://data.cityofchicago.org/resource/787j-mys9.json'
+potholes = 'https://data.cityofchicago.org/resource/787j-mys9.json?$limit=100'
 
 
 app = Flask(__name__)

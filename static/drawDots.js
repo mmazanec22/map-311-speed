@@ -27,11 +27,11 @@ function drawDots(projection, dotData){
         .attr("r", function(d, i) {
             let numPix = dotData[i].seconds_to_completion
             if (typeof numPix != "string") {
-                return numPix/60/60/10 + 'px';
+                return numPix/60/60/24/7 + 'px';
             }
             else {
                 numPix = parseFloat(numPix.split('-')[1])
-                return numPix/60/60/10 + 'px';
+                return numPix/60/60/24/7 + 'px';
             }
         })
         .attr("fill", function(d, i) {
@@ -42,5 +42,15 @@ function drawDots(projection, dotData){
                 return 'coral'
             }
         })
-        .style('opacity', 0.1)
+        .style('opacity', function(d, i) {
+            return 0.25
+        //     let secondsToCompletion = dotData[i].seconds_to_completion
+        //     if (typeof secondsToCompletion != "string") {
+        //         return secondsToCompletion/(avgSeconds*avgSeconds);
+        //     }
+        //     else {
+        //         secondsToCompletion = parseFloat(secondsToCompletion.split('-')[1])
+        //         return secondsToCompletion/(avgSeconds*avgSeconds);
+        //     }
+        })
 }
