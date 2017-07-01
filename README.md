@@ -6,3 +6,6 @@ Starting point:
 	- https://raw.githubusercontent.com/smartchicago/chicago-atlas/master/db/import/zipcodes.geojson
 	- http://bl.ocks.org/cjhin/27e01c636dcc0bfa256c7a225971354d
 - Put a dot on the map by lat/lon
+
+
+- like all data analysis, this should lead to questions, not conclusions
