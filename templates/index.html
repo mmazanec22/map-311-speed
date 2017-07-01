@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chicago 311 Speed</title>
+
+    <!-- external libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <!-- local javascripts -->
+    <script type="text/javascript" src="static/chicagoZips.js"></script>
+    <script type="text/javascript" src='static/drawChicago.js'></script>
+    <script type="text/javascript" src='static/drawDots.js'></script>
+    <script type="text/javascript">
+        jQuery(document).ready(() => {
+            const projection = drawChicago();
+            const dotData = '{{apiData|tojson|safe}}';
+            drawDots(projection, dotData);
+        });
+    </script>
+    <!-- local stylesheet -->
+    <link rel="stylesheet" href="static/styles.css">
+
+</head>
+
+<body>
+    <svg id="chart" preserveAspectRatio="xMidYMin"></svg>
+</body>
+</html>

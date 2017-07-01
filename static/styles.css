@@ -1,0 +1,15 @@
+.zipcode {
+  stroke: steelblue;
+  fill: #FFF;
+}
+
+#chart {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	left: 45%;
+	-webkit-transform: translateX(-45%);
+	-ms-transform: translateX(-45%);
+	transform: translateX(-45%);
+	top: 20px;
+}
