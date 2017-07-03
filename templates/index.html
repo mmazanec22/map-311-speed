@@ -2,34 +2,32 @@
 <html>
 <head>
     <title>Chicago 311 Speed</title>
-
-    <!-- external libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
-
-    <!-- local javascripts -->
     <script type="text/javascript" src="static/chicagoZips.js"></script>
     <script type="text/javascript" src='static/drawChicago.js'></script>
     <script type="text/javascript" src='static/drawDots.js'></script>
+    <link rel="stylesheet" href="static/styles.css">
+
     <script type="text/javascript">
-        jQuery(document).ready(() => {
-            // for item in datasets, add a radio button to the form
-            // check the one that is selected
+        const $ = jQuery;
+        $(document).ready(() => {
             for (let i = 0; i < {{datasets|safe}}.length; i++) {
                 const name = {{datasets|safe}}[i]
-                jQuery('#select-dataset').append(
-                    '<input type="radio" name="which_dataset" id="' + name + '">' + name.replace('_', ' ') + '</input><br>'
+                $('#select-dataset').append(
+                    '<input type="radio" name="which_dataset" id="' + name + '" value="' + name + '">' + name.replace('_', ' ') + '</input><br>'
                     )
             }
-
+            $({{checked_set}}).prop('checked', true)
             const projection = drawChicago();
             const dotData = '{{apiData|tojson|safe}}';
             drawDots(projection, dotData);
 
+            $('input[type=radio]').change(function() {
+                $('#select-dataset').submit();
+            });
         });
     </script>
-    <!-- local stylesheet -->
-    <link rel="stylesheet" href="static/styles.css">
 
 </head>
 
@@ -37,7 +35,7 @@
     <h1>Speed of Response to 311 Requests in Chicago by Zip Code</h1>
     <div id="content-parent">
         <svg id="chart" preserveAspectRatio="xMidYMin"></svg>
-        <form id='select-dataset' method='POST' action='localhost:5000'>
+        <form id='select-dataset' method='POST' action='/'>
         </form>
     </div>
 </body>
