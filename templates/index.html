@@ -18,7 +18,7 @@
             for (let i = 0; i < {{datasets|safe}}.length; i++) {
                 const name = {{datasets|safe}}[i]
                 jQuery('#select-dataset').append(
-                    '<input type="radio" name="which_dataset" id="dataset_' + i + '">' + name + '</input><br>'
+                    '<input type="radio" name="which_dataset" id="' + name + '">' + name.replace('_', ' ') + '</input><br>'
                     )
             }
 
@@ -37,7 +37,7 @@
     <h1>Speed of Response to 311 Requests in Chicago by Zip Code</h1>
     <div id="content-parent">
         <svg id="chart" preserveAspectRatio="xMidYMin"></svg>
-        <form id='select-dataset'>
+        <form id='select-dataset' method='POST' action='localhost:5000'>
         </form>
     </div>
 </body>
