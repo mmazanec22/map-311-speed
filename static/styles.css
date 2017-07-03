@@ -1,12 +1,12 @@
 body {
-	background-color: #fffff9;
+	background-color: #fffffb;
 	color: steelblue;
 	font-family: Tahoma, Geneva, sans-serif;
 }
 
 .zipcode {
   stroke: steelblue;
-  fill: #fffff9;
+  fill: #fffffb;
 }
 
 h1 {
