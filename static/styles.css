@@ -1,15 +1,31 @@
+body {
+	background-color: #fffff9;
+	color: steelblue;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
 .zipcode {
   stroke: steelblue;
-  fill: #FFF;
+  fill: #fffff9;
+}
+
+h1 {
+	font-weight: lighter;
+	text-align: center;
+	padding: 2%;
+}
+
+#content-parent {
+	display: flex;
 }
 
 #chart {
-	display: block;
-	margin: 0 auto;
-	position: relative;
-	left: 45%;
-	-webkit-transform: translateX(-45%);
-	-ms-transform: translateX(-45%);
-	transform: translateX(-45%);
-	top: 20px;
+	width: 50%;
+	padding-left: 7%;
+}
+
+
+#select-dataset {
+	width: 20%;
+	padding-right: 15%;
 }

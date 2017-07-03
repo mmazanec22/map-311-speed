@@ -13,9 +13,19 @@
     <script type="text/javascript" src='static/drawDots.js'></script>
     <script type="text/javascript">
         jQuery(document).ready(() => {
+            // for item in datasets, add a radio button to the form
+            // check the one that is selected
+            for (let i = 0; i < {{datasets|safe}}.length; i++) {
+                const name = {{datasets|safe}}[i]
+                jQuery('#select-dataset').append(
+                    '<input type="radio" name="which_dataset" id="dataset_' + i + '">' + name + '</input><br>'
+                    )
+            }
+
             const projection = drawChicago();
             const dotData = '{{apiData|tojson|safe}}';
             drawDots(projection, dotData);
+
         });
     </script>
     <!-- local stylesheet -->
@@ -24,6 +34,11 @@
 </head>
 
 <body>
-    <svg id="chart" preserveAspectRatio="xMidYMin"></svg>
+    <h1>Speed of Response to 311 Requests in Chicago by Zip Code</h1>
+    <div id="content-parent">
+        <svg id="chart" preserveAspectRatio="xMidYMin"></svg>
+        <form id='select-dataset'>
+        </form>
+    </div>
 </body>
 </html>
