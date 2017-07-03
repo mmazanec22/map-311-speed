@@ -1,11 +1,11 @@
 body {
 	background-color: #fffffb;
-	color: steelblue;
+	color: #003366;
 	font-family: Tahoma, Geneva, sans-serif;
 }
 
 .zipcode {
-  stroke: steelblue;
+  stroke: #003366;
   fill: #fffffb;
 }
 
